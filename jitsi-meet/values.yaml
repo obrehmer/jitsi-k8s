@@ -1,0 +1,5 @@
+namespace: jitsi
+
+pvc:
+  mode: ReadWriteOnce
+  size: 1G
