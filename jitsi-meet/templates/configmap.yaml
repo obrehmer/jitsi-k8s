@@ -1,0 +1,27 @@
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ .Release.Name }}-env
+  namespace: {{ .Values.namespace }}
+data:
+  ETHERPAD_DEFAULT_PAD_TEXT: '"Welcome to Web Chat!\n\n"'
+  ETHERPAD_SKIN_NAME: colibris
+  ETHERPAD_SKIN_VARIANTS: '"super-light-toolbar super-light-editor light-background full-width-editor"'
+  ETHERPAD_TITLE: Video Chat
+  HTTPS_PORT: '443'
+  HTTP_PORT: '80'
+  JIBRI_RECORDER_PASSWORD: 57969777b35e6040791212b1aa26ff36
+  JIBRI_XMPP_PASSWORD: 38f7da1f75c78e27f7cf93fe772a79c1
+  JICOFO_AUTH_PASSWORD: fcd121582ec8322f5fc262a398fe7c8e
+  JIGASI_XMPP_PASSWORD: b984fb9c2509d4831419a1fa7e477dec
+  JVB_ADVERTISE_IPS: {{ .Values.extip }}
+  JVB_AUTH_PASSWORD: 6ea25fdc9611b6df32a0dfac49fa773f
+  JVB_PORT: '30300'
+  PUBLIC_URL: https://{{ .Values.domainname }}
+  TURN_CREDENTIALS: jr00QMMfECtfMCwKewZTPh23sdf3m3DeusUPkgQfFRTzUg1VC6KsBIiqiFFeP
+  TURN_HOST: {{ .Values.extip }}
+  TURN_PORT: '3478'
+  TZ: Europe/Berlin
+  XMPP_BOSH_URL_BASE: http://127.0.0.1:5280
+  XMPP_SERVER: localhost
