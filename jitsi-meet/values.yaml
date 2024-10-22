@@ -1,6 +1,6 @@
 namespace: jitsi
-domainname: test.sarnow.no
-extip: 10.240.27.121
+domainname: testmeet.tina-steiger.com
+extip: 195.192.158.70
 
 pvc:
   mode: ReadWriteOnce
