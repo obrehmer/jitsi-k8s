@@ -8,13 +8,10 @@ pvc:
 image:
   jitsi:
     repository: jitsi/web
-#    tag: "stable-7882"
     tag: "stable"
   prosody:
     repository: jitsi/prosody
     tag: "stable"
-#    tag: "stable-7882"
   jvb:
     repository: jitsi/jvb
     tag: "stable"
-#    tag: "stable-7882"
