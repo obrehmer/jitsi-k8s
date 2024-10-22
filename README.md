@@ -1,4 +1,4 @@
-# Install JITSY MEET 
+# Install JITSI MEET 
 
 ### prerequisites
 
