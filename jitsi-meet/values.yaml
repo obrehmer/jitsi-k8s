@@ -3,3 +3,10 @@ namespace: jitsi
 pvc:
   mode: ReadWriteOnce
   size: 1G
+image:
+  jitsi:
+    repository: jitsi/web
+    tag: "stable-7882"
+  prosody:
+    repository: jitsi/prosody
+    tag: "stable-7882"

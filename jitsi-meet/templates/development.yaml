@@ -1,21 +1,18 @@
-kind: Deployment
+---
 apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: jitsi
-  namespace: matrix
-  labels:
-    k8s-app: jitsi
+  name: {{ .Release.Name }}-deployment
+  namespace: {{ .Values.namespace }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      k8s-app: jitsi
+      app: {{ .Release.Name }}
   template:
     metadata:
-      name: jitsi
-      creationTimestamp: null
       labels:
-        k8s-app: jitsi
+        app: {{ .Release.Name }}
     spec:
       volumes:
         - name: jitsi-conf
@@ -23,7 +20,7 @@ spec:
             claimName: jitsi-conf
       containers:
         - name: web
-          image: jitsi/web:stable-7882
+          image: "{{ .Values.image.jitsi.repository }}:{{ .Values.image.jitsi.tag }}"
           envFrom:
             - configMapRef:
                 name: jitsi-envs
@@ -55,7 +52,7 @@ spec:
           securityContext:
             privileged: false
         - name: prosody
-          image: jitsi/prosody:stable-7882
+          image: "{{ .Values.image.prosody.repository }}:{{ .Values.image.prosody.tag }}"
           envFrom:
             - configMapRef:
                 name: jitsi-envs
