@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: {{ .Release.Name }}-pvc
+  name: {{ .Release.Name }}-conf
   namespace: {{ .Values.namespace }}
 spec:
   accessModes:

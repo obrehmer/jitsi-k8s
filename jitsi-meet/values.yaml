@@ -1,4 +1,6 @@
 namespace: jitsi
+domainname: test.sarnow.no
+extip: 10.240.27.121
 
 pvc:
   mode: ReadWriteOnce
@@ -9,4 +11,7 @@ image:
     tag: "stable-7882"
   prosody:
     repository: jitsi/prosody
+    tag: "stable-7882"
+  jvb:
+    repository: jitsi/jvb
     tag: "stable-7882"

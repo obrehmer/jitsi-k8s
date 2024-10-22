@@ -15,15 +15,15 @@ spec:
         app: {{ .Release.Name }}
     spec:
       volumes:
-        - name: jitsi-conf
+        - name: {{ .Release.Name }}-conf
           persistentVolumeClaim:
-            claimName: jitsi-conf
+            claimName: {{ .Release.Name }}-conf
       containers:
         - name: web
           image: "{{ .Values.image.jitsi.repository }}:{{ .Values.image.jitsi.tag }}"
           envFrom:
             - configMapRef:
-                name: jitsi-envs
+                name: {{ .Release.Name }}-env
           env:
             - name: DOCKER_HOST_ADDRESS
               valueFrom:
@@ -37,13 +37,13 @@ spec:
                   fieldPath: metadata.name
           resources: {}
           volumeMounts:
-            - name: jitsi-conf
+            - name: {{ .Release.Name }}-conf
               mountPath: /config
               subPath: web-config
-            - name: jitsi-conf
+            - name: {{ .Release.Name }}-conf
               mountPath: /var/spool/cron/crontabs
               subPath: crontabs
-            - name: jitsi-conf
+            - name: {{ .Release.Name }}-conf
               mountPath: /usr/share/jitsi-meet/transcripts
               subPath: transcripts
           terminationMessagePath: /dev/termination-log
@@ -55,13 +55,13 @@ spec:
           image: "{{ .Values.image.prosody.repository }}:{{ .Values.image.prosody.tag }}"
           envFrom:
             - configMapRef:
-                name: jitsi-envs
+                name: {{ .Release.Name }}-env
           resources: {}
           volumeMounts:
-            - name: jitsi-conf
+            - name: {{ .Release.Name }}-conf
               mountPath: /config
               subPath: prosody-config
-            - name: jitsi-conf
+            - name: {{ .Release.Name }}-conf
               mountPath: /prosody-plugins-custom
               subPath: prosody-plugins-custom
           terminationMessagePath: /dev/termination-log
@@ -73,10 +73,10 @@ spec:
           image: jitsi/jicofo:stable-7882
           envFrom:
             - configMapRef:
-                name: jitsi-envs
+                name: {{ .Release.Name }}-env
           resources: {}
           volumeMounts:
-            - name: jitsi-conf
+            - name: {{ .Release.Name }}-conf
               mountPath: /config
               subPath: jicofo-config
           terminationMessagePath: /dev/termination-log
@@ -85,13 +85,13 @@ spec:
           securityContext:
             privileged: false
         - name: jvb
-          image: jitsi/jvb:stable-7882
+          image: "{{ .Values.image.jvb.repository }}:{{ .Values.image.jvb.tag }}"
           envFrom:
             - configMapRef:
-                name: jitsi-envs
+                name: {{ .Release.Name }}-env
           resources: {}
           volumeMounts:
-            - name: jitsi-conf
+            - name: {{ .Release.Name }}-conf
               mountPath: /config
               subPath: jvb-config
           terminationMessagePath: /dev/termination-log
