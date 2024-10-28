@@ -1,6 +1,7 @@
 namespace: jitsi
 domainname: testmeet.tina-steiger.com
 extip: 195.192.158.70
+fixchannel: channelname
 
 pvc:
   mode: ReadWriteOnce
