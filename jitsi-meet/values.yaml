@@ -1,15 +1,15 @@
 namespace: jitsi
-domainname: testmeet.tina-steiger.com
-extip: 195.192.158.70
-fixchannel: channelname
+domainname: meet.tina-steiger.com
+extip: 195.192.156.198
+fixchannel: simtrans
 
 pvc:
   mode: ReadWriteOnce
   size: 1G
 image:
   jitsi:
-    repository: jitsi/web
-    tag: "stable"
+    repository: olsarnow/jitsi-web
+    tag: "1.0.7"
   prosody:
     repository: jitsi/prosody
     tag: "stable"

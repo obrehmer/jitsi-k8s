@@ -31,5 +31,5 @@ data:
   ENABLE_REQUIRE_DISPLAY_NAME: "true"
   DISABLE_PRIVATE_CHAT: "true"
   ENABLE_WELCOME_PAGE: "false"
-  ENABLE_REQUIRE_DISPLAY_NAME: "true"
   DISABLE_PROFILE: "true"
+  APP_NAME: "Meet Tina Steiger"
