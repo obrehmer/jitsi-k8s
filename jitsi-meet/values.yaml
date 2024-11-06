@@ -9,7 +9,7 @@ pvc:
 image:
   jitsi:
     repository: olsarnow/jitsi-web
-    tag: "1.0.7"
+    tag: "1.0.11"
   prosody:
     repository: jitsi/prosody
     tag: "stable"
