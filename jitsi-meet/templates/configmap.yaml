@@ -25,11 +25,14 @@ data:
   TZ: Europe/Berlin
   XMPP_BOSH_URL_BASE: http://127.0.0.1:5280
   XMPP_SERVER: localhost
+#  START_WITH_AUDIO_MUTED: "true"
+  START_AUDIO_MUTED: "0"
+  START_VIDEO_MUTED: "0"
   START_AUDIO_ONLY: "true"
-  START_WITH_AUDIO_MUTED: "true"
   ENABLE_BREAKOUT_ROOMS: "false"
   ENABLE_REQUIRE_DISPLAY_NAME: "true"
   DISABLE_PRIVATE_CHAT: "true"
   ENABLE_WELCOME_PAGE: "false"
-  DISABLE_PROFILE: "true"
+#  DISABLE_PROFILE: "true"
   APP_NAME: "Meet Tina Steiger"
+  JITSI_WATERMARK_LINK: "https://tina-steiger.com/"
